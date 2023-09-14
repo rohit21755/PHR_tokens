@@ -62,9 +62,13 @@ const networkConfig = {
 
 const developmentChains = ["hardhat", "localhost"]
 const VERIFICATION_BLOCK_CONFIRMATIONS = 6
+const frontEndContractsFile = "/mnt/c/Users/91782/Desktop/BTP/contractAddresses.json"
+const frontEndAbiFile = "/mnt/c/Users/91782/Desktop/BTP/abi.json"
 
 module.exports = {
     networkConfig,
     developmentChains,
     VERIFICATION_BLOCK_CONFIRMATIONS,
+    frontEndContractsFile,
+    frontEndAbiFile,
 }

@@ -45,7 +45,7 @@ abstract contract ApproveAndCallFallBack {
     function receiveApproval(address from, uint256 tokens, address token, bytes calldata data) public virtual;
 }
 
-contract PHRToken is ERC20Interface {
+contract PHRtoken is ERC20Interface {
     using SafeMath for uint256;
 
     string public symbol;
@@ -57,14 +57,14 @@ contract PHRToken is ERC20Interface {
     mapping(address => uint256) balances;
     mapping(address => mapping(address => uint256)) allowed;
 
-    constructor(address primaryAddress) {
+    constructor() {
         symbol = "PHR";
         name = "PHR Token";
         decimals = 2;
         _totalSupply = 100000 * 10 ** uint256(decimals);
-        owner = payable(primaryAddress);
-        balances[primaryAddress] = _totalSupply;
-        emit Transfer(address(0), primaryAddress, _totalSupply);
+        owner = payable(msg.sender);
+        balances[msg.sender] = _totalSupply;
+        emit Transfer(address(0), msg.sender, _totalSupply);
     }
 
     function balanceOf(
